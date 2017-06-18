@@ -33,21 +33,12 @@ ngModule.config(function($stateProvider) {
             }
         },
         {
-            name: 'holidays.holiday',
-            url: '/{holidaySlug}',
+            name: 'holiday',
+            url: '/holidays/{holidayName}',
             component: 'holiday',
             resolve: {
-                holiday: function(holidays, $stateParams) {
-                    // console.log(holidays.holidays["2015-01-01"][0].name);
-                    for (let key in holidays.holidays) {
-                        if (holidays.holidays.hasOwnProperty(key)) {
-                            
-                        }
-                    }
-                    return holidays.find(function(holiday) {
-                        console.log(holiday);
-                        return holiday.name === $stateParamas.holidaySlug;
-                    });
+                holiday: function(HolidayService, $transition$) {
+                    return HolidayService.getHoliday($transition$.params().holidayName);
                 }
             }
         }
