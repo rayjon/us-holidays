@@ -6,30 +6,32 @@ angular.module('usholidays').service('HolidayService', function($http) {
         var year = '2015';
         var country = 'US';
         var url = 'https://holidayapi.com/v1/holidays?key=' + testAPIKey + '&country=' + country + '&year=' + year;
+        var holidaysFlattened = [];
         
         return $http.get(url, { cache: true }).then(function(response) {
-            return response.data;
+            //flatten the holidays in each date array
+            for(var date in response.data.holidays) {
+              for(var holiday in response.data.holidays[date])
+                holidaysFlattened.push(response.data.holidays[date][holiday]);
+            }
+            //returned flattened response data with HTTP status
+            return {holidays: holidaysFlattened, status: response.data.status};
         });
     },
     
-    getHoliday: function(day) {    
+    getHoliday: function(day) {
       return service.getAllHolidays().then(function(holidays) {
         var holidayList = holidays.holidays;
         
         // Search in the holiday list for the link that was clicked
         for(var prop in holidayList) {
-            // bypass any native properties of the Object class to speed things up
-            if(holidayList.hasOwnProperty(prop)) {
-                // There may be multiple holidays on the same date so we'll
-                // iterate through each date array.
-                for(var i in holidayList[prop]) {
-                    if(holidayList[prop][i].name === day) {
-                      return holidayList[prop][i];
-                    }
-                } 
-            }
+          console.log(holidayList[prop]);
+          if(holidayList[prop].name === day) {
+            //return the matching object
+            return holidayList[prop];
+          }
         }
-        // return false when no matching date is found
+        // return false when no matching holiday is found
         return false;
       });
     }
