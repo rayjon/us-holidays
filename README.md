@@ -1,10 +1,10 @@
 # US Holidays Angular App
-This app combines [AngularJS 1.x](https://angularjs.org/), [UI-Router](https://ui-router.github.io/ng1/), [AngularJS Material](https://material.angularjs.org/latest/), and the [Holiday API](https://holidayapi.com/) to create simple app that displays a list of US Holidays.
+This app combines [AngularJS 1.x](https://angularjs.org/), [UI-Router](https://ui-router.github.io/ng1/), [AngularJS Material](https://material.angularjs.org/latest/), and the [Holiday API](https://holidayapi.com/) to create a simple app that displays a list of US Holidays.
 
 ## Instructions
 Download the repo and use [http-server](https://www.npmjs.com/package/http-server) (or your favorite tool) to serve the app on your local host.
 
-# ToDo
+## To Do
 
 * Bundle assets with Webpack and NPM.
 * Add iconography to holiday detail view.
