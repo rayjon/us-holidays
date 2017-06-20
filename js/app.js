@@ -1,20 +1,3 @@
-
-
-// ngModule.controller('holidayController', function($scope, $http) {
-//     var testAPIKey = '4bac12e2-37db-4823-b4e4-4814839e4dea';
-//     var liveAPIKey = '1070be91-d959-4452-a7f1-107fe21fbaf1';
-//     var year = '2015';
-//     var country = 'US';
-//     var url = 'https://holidayapi.com/v1/holidays?key=' + testAPIKey + '&country=' + country + '&year=' + year;
-
-//     $http.get(url)
-//     .then(function success(response) {
-//         $scope.myHolidays = response.data;
-//     }, function error(response) {
-//         $scope.myHolidays = "Oh, no! Something went wrong. Please alert me @raycjon";
-//     });
-// });
-
 var ngModule = angular.module('usholidays', ['ngMaterial', 'ui.router']);
 
 // .config 
